@@ -1,0 +1,38 @@
+기본적인 머신러닝의 컨셉, 용어들
+Linear Regression
+
+시험 점수를 예측하는 것(공부시간에 기반하여)
+supervised learning.
+예측하고자 하는 것은 점수 (0-100 사이) -> regression
+공부 시간과 점수가 나와 있는 data로 학습시킴 -> training
+학습을 통해 어떤 모델을 만들어 냄.
+공부시간을 input으로 해서 regression이 점수라는 output을 예측해줌.
+
+어떻게 동작하게 될까??
+x : 예측을 하기 위한 기본적인 자료 feature
+y : 예측해야 하는 대상
+
+training data를 graph로 그려보자.
+
+regression model을 학습 -> 하나의 가설을 세워야 함. 
+Linear Hyphthesis : Linear 한 모델이 training data에 맞을 것이다 라고 가정
+많은 현상들이 대부분 Linear한 것으로 설명되는 것이 많음.(공부시간과 성적의 비례, 훈련시간과 달리기 시간단축과 비례, 집의 크기와 집값이 비례함.)
+data에 맞는 linear한 선을 찾아서 결정하는것 -> 가설
+
+H(x) = Wx + b
+
+어떤 선이 가장 적합한지 판단해야함. -> H(x) = x ( H(x) = 0.5x + 2/H(x) = 0.5x-0.5)
+판단할때, 실제 data와 가설이 나타내는 데이터와가 얼마나 유사한지/다른지 측정 -> 선과 점 사이의 거리를 측정
+linear regression 에서는 cost function(loss function)이라고 표현 
+: H(x) - y -> 별로 안좋음
+: (H(x) - y)^2 -> 보통 차의 제곱함. 값의 차를 일정하게 양수로 표현함. 차이가 클 때 값이 커져 페널티가 올라간다?
+
+cost function = 1/m * sigma(i = 1 to m)(H(x(i))-y(i))^2 : 일반화 한 식. m = 학습 데이터의 개수/값의 차의 평균.
+
+Cost function은 W와 b의 function에 의해 결정되는 function이 됨. -> linear regression의 mission은 cost function의 값을 가장 작게 하는 H(x)을 찾는것
+
+Goal : minimize cost(W,b) 값을 가장 작게 하는 W와 b를 구하자!
+
+주어진 식에서 주어진 값들을 최소화 하는 많은 알고리즘 존재! 이미 만들어진 알고리즘을 사용하여 구현해 보자!
+
+실제적으로 어떻게 minimize 하는지 알아보자!
